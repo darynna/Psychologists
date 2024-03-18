@@ -23,6 +23,16 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+    },
+    "ignorePatterns": ["node_modules/", "dist/"],
+    "overrides": [
+      {
+        "files": ["*.ts", "*.tsx"]
+      }
     ]
   },
   "browserslist": {
