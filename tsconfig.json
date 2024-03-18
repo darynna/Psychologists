@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": ["ES2021", "dom", "es2015", "esnext"],
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true
+  },
+  "include": ["**/*.ts", "src/components/App.tsx", "src/index.tsx"]
+}
