@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.3"
   },
@@ -25,15 +26,21 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
-    "rules": {
-    },
-    "ignorePatterns": ["node_modules/", "dist/"],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {},
+    "ignorePatterns": [
+      "node_modules/",
+      "dist/"
+    ],
     "overrides": [
       {
-        "files": ["*.ts", "*.tsx"],
-        "rules": {
-        }
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ],
+        "rules": {}
       }
     ]
   },
@@ -50,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "@web/dev-server": "^0.4.3"
   }
 }
