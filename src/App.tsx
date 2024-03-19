@@ -10,8 +10,8 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
-        <Route path="/psychologist" element={<Psychologists />} />
-        <Route path="/favorite" element={<Favorite />} />
+        <Route path="/psychologists" element={<Psychologists />} />
+        <Route path="/favorites" element={<Favorite />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
