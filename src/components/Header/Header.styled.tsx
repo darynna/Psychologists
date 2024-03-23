@@ -27,16 +27,13 @@ export const ListStyled= styled.ul`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-color: #1e90ff;
-  text-decoration: none;
   transition: color 0.3s;
-  font-size: 18px; 
-  font-weight: bold;
+  font-size: 16px; 
 
-  &:hover {
-    color: #4682b4; /* Lighter blue color on hover */
-    text-shadow: 0 0 5px #fff, 0 0 10px #4682b4; /* Glowing effect on hover */
-  }
+  // &:hover {
+  //   color: #4682b4; /* Lighter blue color on hover */
+  //   text-shadow: 0 0 5px #fff, 0 0 10px #4682b4; /* Glowing effect on hover */
+  // }
 `;
 
 
@@ -47,4 +44,15 @@ export const FirstlIstyled= styled.li`
 @media (min-width: 1280px) {
   margin-right: 100px;
 }
+
+.logo-text{
+  font-size: 20px;
+  font-weight: 700
+}
+`;
+
+
+export const StyledElem = styled.span`
+
+color: #3470FF;
 `;
