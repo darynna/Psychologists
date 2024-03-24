@@ -1,14 +1,12 @@
 import React from 'react';
-import {HaederStyled, ListStyled, StyledElem, NavLinkStyled, FirstlIstyled} from "./Header.styled"
+import {HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg} from "./Header.styled"
 
 export const Header = () => {
   return (
     <HaederStyled >
-      <nav>
+      <Nav>
+        <Logo className="logo-text" to="/"><StyledElem>psychologists.</StyledElem>services</Logo>
         <ListStyled>
-        <FirstlIstyled>
-            <NavLinkStyled className="logo-text" to="/"><StyledElem>psychologists.</StyledElem>services</NavLinkStyled>
-          </FirstlIstyled>
           <li>
             <NavLinkStyled to="/">Home</NavLinkStyled>
           </li>
@@ -23,10 +21,10 @@ export const Header = () => {
             </NavLinkStyled>
           </li>
         </ListStyled>
-      </nav>
+      </Nav>
       <div>
-        <button>Log in</button>
-        <button>Registration</button>
+        <StyledButtonLogIn>Log in</StyledButtonLogIn>
+        <StyledButtonReg>Registration</StyledButtonReg>
       </div>
     </HaederStyled>
   );

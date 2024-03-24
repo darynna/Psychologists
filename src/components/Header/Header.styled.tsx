@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 
 export const HaederStyled = styled.header`
 width: 100%;
-padding: 34px 20px;
+padding: 24px 20px;
 margin: 0 auto;
 max-width: 320px;
+border-bottom: 1px solid rgba(25, 26, 21, 0.1);
 
 @media (min-width: 428px) and (max-width: 767px) {
   max-width: 428px;
@@ -17,6 +18,18 @@ max-width: 320px;
 }
 `;
 
+export const Nav = styled.nav`
+@media (min-width: 768px){
+display: flex;
+align-items: center;
+gap: 32px;
+}
+
+@media (min-width: 1140px){
+  gap:130px;
+}
+
+`
 
 export const ListStyled= styled.ul`
   @media (min-width: 768px) {
@@ -37,22 +50,43 @@ export const NavLinkStyled = styled(NavLink)`
 `;
 
 
-export const FirstlIstyled= styled.li`
-@media (min-width: 768px) {
-  margin-right: 40px;
-}
-@media (min-width: 1280px) {
-  margin-right: 100px;
-}
+export const Logo= styled(NavLink)`
+// @media (min-width: 768px) {
+//   margin-right: 40px;
+// }
+// @media (min-width: 1280px) {
+//   margin-right: 100px;
+// }
 
-.logo-text{
   font-size: 20px;
-  font-weight: 700
-}
+font-weight: 700
 `;
 
 
 export const StyledElem = styled.span`
 
 color: #3470FF;
+`;
+
+export const StyledButtonLogIn = styled.button`
+padding: 14px 39px;
+margin-right: 8px;
+font-family: Inter, sans-serif;
+font-size: 16px;
+font-weight: 500;
+color: rgb(25, 26, 21);
+border: 1px solid rgba(25, 26, 21, 0.2);
+border-radius: 30px;
+background-color: transparent
+`;
+
+export const StyledButtonReg = styled.button`
+padding: 14px 39px;
+font-family: Inter, sans-serif;
+font-size: 16px;
+font-weight: 500;
+color: rgb(251, 251, 251);
+border: none;
+border-radius: 30px;
+background-color: rgb(52, 112, 255)
 `;
