@@ -7,7 +7,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "lib": ["ES2021", "dom", "es2015", "esnext"],
+    "lib": ["ES2021", "dom", "es2015", "esnext",],
     "moduleResolution": "node",
     "preserveConstEnums": true,
     "skipLibCheck": true,

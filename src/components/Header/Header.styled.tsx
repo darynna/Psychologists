@@ -77,7 +77,12 @@ font-weight: 500;
 color: rgb(25, 26, 21);
 border: 1px solid rgba(25, 26, 21, 0.2);
 border-radius: 30px;
-background-color: transparent
+background-color: transparent;
+
+&:hover {
+  color: rgb(251, 251, 251);
+    background-color: #255EE8;
+}
 `;
 
 export const StyledButtonReg = styled.button`
@@ -88,5 +93,9 @@ font-weight: 500;
 color: rgb(251, 251, 251);
 border: none;
 border-radius: 30px;
-background-color: rgb(52, 112, 255)
+background-color: rgb(52, 112, 255);
+
+&:hover {
+    background-color: #255EE8;
+}
 `;
