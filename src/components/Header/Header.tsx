@@ -1,7 +1,17 @@
-import React from 'react';
-import {HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg} from "./Header.styled"
+import React, { useState } from 'react';
+import { HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg } from "./Header.styled";
+import { ModalWindow } from "../ModalWindow/ModalWindow";
+import { RegistrationForm } from "../Form/FormReg";
 
 export const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const openModal = (): void => {
+        setIsModalOpen(true);
+    }
+      const closeModal = (): void => {
+        setIsModalOpen(false);
+    }
   return (
     <HaederStyled >
       <Nav>
@@ -24,8 +34,9 @@ export const Header = () => {
       </Nav>
       <div>
         <StyledButtonLogIn>Log in</StyledButtonLogIn>
-        <StyledButtonReg>Registration</StyledButtonReg>
+        <StyledButtonReg onClick={openModal}>Registration</StyledButtonReg>
       </div>
+       {isModalOpen && <ModalWindow Content={<RegistrationForm closeModal={closeModal} />} />}
     </HaederStyled>
   );
 };
