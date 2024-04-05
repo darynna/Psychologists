@@ -1,4 +1,4 @@
-import React,  { useState } from 'react';
+import React, { useState } from 'react';
 import homeImg1x from '../../assets/img/home/homeImg.png';
 import homeImg2x from "../../assets/img/home/homeImg@2x.png";
 import { ReactComponent as QuestionIcon } from '../../assets/icons/question.svg';

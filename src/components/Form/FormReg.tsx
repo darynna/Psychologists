@@ -1,8 +1,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik, FormikHelpers } from 'formik';
-// import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
-import { FormContent, FormTitle, FormText, FormCloseButton, FormForm, FormSignUpButton, FormLabel, FormField } from "./Form.style";
+import { FormContent, FormTitle, FormText, FormCloseButton, FormForm, FormSignUpButton, FormLabel, FormField } from "./Form.styled";
+import {auth} from "../../firebase/config"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/Auth/authSlice';
+
 
 interface Values {
   name: string;
@@ -11,52 +16,84 @@ interface Values {
 }
 
 interface FormProps {
-    closeModal: () => void;
+  closeModal: () => void;
 }
 
-export const RegistrationForm: React.FC<FormProps> = ({closeModal}) => {
-    return (
-      <FormContent>
-        <FormCloseButton onClick={closeModal}>Close</FormCloseButton>
-            <FormTitle>Registration</FormTitle>
-            <FormText>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</FormText>
+export const RegistrationForm: React.FC<FormProps> = ({ closeModal }) => {
+  const dispatch = useDispatch();
+  
+  const handleRegistration = async (
+    values: Values,
+    { setSubmitting }: FormikHelpers<Values>
+  ) => {
+    try {
+      const { email, password } = values;
+
+      // Create user in Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      dispatch(login({ uid: user.uid, email: user.email }));
+
+      // Registration successful
+      Notify.success('Registration successful!');
+       closeModal();
+
+      setSubmitting(false);
+    } catch (error: any) {
+      // Handle Firebase Authentication errors
+      alert(error.message);
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <FormContent>
+      <FormCloseButton onClick={closeModal}>Close</FormCloseButton>
+      <FormTitle>Registration</FormTitle>
+      <FormText>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</FormText>
       <Formik
         initialValues={{
           name: '',
           email: '',
           password: '',
         }}
-        onSubmit={(
-          values: Values,
-          { setSubmitting }: FormikHelpers<Values>
-        ) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 500);
-        }}
+        onSubmit={handleRegistration}
       >
-        <FormForm >
-          <FormLabel htmlFor="name">Name</FormLabel>
-          <FormField id="name" name="name" placeholder="Name" />
+        {({ values, handleChange }) => (
+          <FormForm>
+            <FormLabel htmlFor="name">Name</FormLabel>
+            <FormField 
+              id="name" 
+              name="name" 
+              placeholder="Name" 
+              value={values.name} 
+              onChange={handleChange}
+            />
 
-          <FormLabel htmlFor="email">Email</FormLabel>
-          <FormField id="lastName" name="lastName" placeholder="Email" />
+            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormField 
+              id="email" 
+              name="email" 
+              placeholder="Email" 
+              value={values.email} 
+              onChange={handleChange}
+            />
 
-          <FormLabel htmlFor="password">Password</FormLabel>
-          <FormField
-            id="password"
-            name="password"
-            placeholder="Password"
-            type="password"
-          />
+            <FormLabel htmlFor="password">Password</FormLabel>
+            <FormField
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value={values.password}
+              onChange={handleChange}
+            />
 
-          <FormSignUpButton type="submit">Sign up</FormSignUpButton>
-        </FormForm>
+            <FormSignUpButton type="submit">Sign up</FormSignUpButton>
+          </FormForm>
+        )}
       </Formik>
     </FormContent>
   );
 };
-
-
 

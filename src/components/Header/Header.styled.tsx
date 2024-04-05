@@ -99,3 +99,10 @@ background-color: rgb(52, 112, 255);
     background-color: #255EE8;
 }
 `;
+
+
+export const LogOutBox = styled.div`
+  display: flex;
+  gap: 28px;
+  align-items: center;
+`;

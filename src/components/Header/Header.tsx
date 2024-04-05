@@ -1,17 +1,45 @@
 import React, { useState } from 'react';
-import { HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg } from "./Header.styled";
+import { useSelector, useDispatch } from 'react-redux';
+import { HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg, LogOutBox } from "./Header.styled";
 import { ModalWindow } from "../ModalWindow/ModalWindow";
 import { RegistrationForm } from "../Form/FormReg";
+import { LoginForm } from "../Form/FormLog";
+import { RootState } from '../../redux/store';
+import { logout } from '../../redux/Auth/authSlice';
+import { persistor } from '../../redux/store';
+import { getAuth, signOut } from 'firebase/auth';
+
 
 export const Header = () => {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [isModalRegOpen, setIsModalRegOpen] = useState<boolean>(false);
 
-    const openModal = (): void => {
-        setIsModalOpen(true);
+    const openModalReg = (): void => {
+        setIsModalRegOpen(true);
     }
-      const closeModal = (): void => {
-        setIsModalOpen(false);
+      const closeModalReg = (): void => {
+        setIsModalRegOpen(false);
+      }
+  
+      const [isModalLogOpen, setIsModalLogOpen] = useState<boolean>(false);
+
+    const openModalLog = (): void => {
+        setIsModalLogOpen(true);
     }
+      const closeModalLog = (): void => {
+        setIsModalLogOpen(false);
+      }
+  const dispatch = useDispatch();
+  
+  const handleLogout = () => {
+ dispatch(logout());
+  const auth = getAuth();
+  signOut(auth);
+  persistor.purge().then(() => {
+    persistor.flush();
+  });
+};
+  
+  const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
   return (
     <HaederStyled >
       <Nav>
@@ -25,18 +53,31 @@ export const Header = () => {
             Psychologist
             </NavLinkStyled>
           </li>
-          <li> 
+          
+          {isAuthenticated ? (
+             <li> 
             <NavLinkStyled to="/favorites">
             Favorite
             </NavLinkStyled>
-          </li>
+          </li>) : <></>
+         }
         </ListStyled>
       </Nav>
       <div>
-        <StyledButtonLogIn>Log in</StyledButtonLogIn>
-        <StyledButtonReg onClick={openModal}>Registration</StyledButtonReg>
+        {isAuthenticated ? (
+          <LogOutBox>
+            <span>{user?.email?.split('@')[0]}</span>
+            <StyledButtonLogIn onClick={handleLogout}>Logout</StyledButtonLogIn>
+          </LogOutBox>
+        ) : (
+          <>
+            <StyledButtonLogIn onClick={openModalLog}>Log in</StyledButtonLogIn>
+            <StyledButtonReg onClick={openModalReg}>Registration</StyledButtonReg>
+          </>
+        )}
       </div>
-       {isModalOpen && <ModalWindow Content={<RegistrationForm closeModal={closeModal} />} />}
+      {isModalRegOpen && <ModalWindow Content={<RegistrationForm closeModal={closeModalReg} />} />}
+       {isModalLogOpen && <ModalWindow Content={<LoginForm closeModal={closeModalLog} />} />}
     </HaederStyled>
   );
 };
