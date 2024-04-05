@@ -3,11 +3,10 @@ import * as React from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik, FormikHelpers } from 'formik';
 import { FormContent, FormTitle, FormText, FormCloseButton, FormForm, FormSignUpButton, FormLabel, FormField } from "./Form.styled";
-import {auth} from "../../firebase/config"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/Auth/authSlice';
-
+import { auth } from "../../firebase/config"
 
 interface Values {
   name: string;
