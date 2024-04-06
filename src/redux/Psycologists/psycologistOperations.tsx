@@ -10,6 +10,7 @@ type Review = {
 };
 
 export type Psychologist = {
+    id: number;
   name: string;
   avatar_url: string;
   experience: string;

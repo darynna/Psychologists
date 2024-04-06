@@ -1,9 +1,8 @@
 import React from 'react';
+import FavouriteContent from "../../components/FavouriteContent/FavouriteContent"
 
 export const Favorite = () => {
   return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
+    <FavouriteContent/>
   );
 };

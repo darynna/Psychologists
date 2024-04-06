@@ -68,6 +68,14 @@ export const StyledElem = styled.span`
 color: #3470FF;
 `;
 
+export const StyledElemIcon = styled.span`
+width:40px;
+height: 40px;
+padding: 8px;
+background-color:#3470FF;
+border-radius: 10px
+`;
+
 export const StyledButtonLogIn = styled.button`
 padding: 14px 39px;
 margin-right: 8px;

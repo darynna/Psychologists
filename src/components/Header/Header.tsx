@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg, LogOutBox } from "./Header.styled";
+import { HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg, LogOutBox, StyledElemIcon } from "./Header.styled";
 import { ModalWindow } from "../ModalWindow/ModalWindow";
 import { RegistrationForm } from "../Form/FormReg";
 import { LoginForm } from "../Form/FormLog";
@@ -8,7 +8,7 @@ import { RootState } from '../../redux/store';
 import { logout } from '../../redux/Auth/authSlice';
 import { persistor } from '../../redux/store';
 import { getAuth, signOut } from 'firebase/auth';
-
+import { ReactComponent as UserIcon } from '../../assets/icons/icon-user.svg';
 
 export const Header = () => {
     const [isModalRegOpen, setIsModalRegOpen] = useState<boolean>(false);
@@ -66,7 +66,7 @@ export const Header = () => {
       <div>
         {isAuthenticated ? (
           <LogOutBox>
-            <span>{user?.email?.split('@')[0]}</span>
+            <StyledElemIcon><UserIcon/></StyledElemIcon><span>{user?.email?.split('@')[0]}</span>
             <StyledButtonLogIn onClick={handleLogout}>Logout</StyledButtonLogIn>
           </LogOutBox>
         ) : (

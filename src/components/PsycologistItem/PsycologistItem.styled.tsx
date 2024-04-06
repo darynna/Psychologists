@@ -21,9 +21,16 @@ export const PsycologistWrapContentFirst = styled.div`
 display: flex;
 justify-content: space-between;
 `
+
 export const PsycologistBoxContentFirst = styled.div`
 display: flex;
 gap: 8px;
+`
+
+export const PsycologistlikeButton = styled.button`
+height: 26px;
+background-color: transparent;
+border: none
 `
 
 export const PsycologistPrice = styled.span`
@@ -67,4 +74,48 @@ margin-top:14px;
 border: none;
 background-color: transparent;
   text-decoration: underline;
+`
+
+// Rewies section
+
+export const ReviewMainWrap= styled.div`
+margin: 48px 0 18px 0;
+`
+export const ReviewSecondaryWrap= styled.div`
+margin: 0 0 25px 0;
+`
+
+export const ReviewWrap= styled.div`
+display: flex;
+gap: 12px
+`
+
+export const ReviewerImg = styled.div`
+border-radius: 100px;
+width: 44px;
+padding: 13px 14px;
+height: 44px;
+background-color: rgba(52, 112, 255, 0.2);
+color:rgb(52, 112, 255);
+font-size: 20px;
+`
+export const ReviewParagrph = styled.p`
+margin-top: 16px;
+font-weight: 400;
+font-size:16px;
+color:rgba(25, 26, 21, 0.5)
+`
+
+export const RevieButton = styled.button`
+padding: 14px 32px;
+font-size: 16px;
+font-weight: 500;
+background-color: rgb(52, 112, 255);
+color: rgb(251, 251, 251);
+border: none;
+border-radius: 30px;
+
+&:hover {
+    background-color: #255EE8;
+}
 `
