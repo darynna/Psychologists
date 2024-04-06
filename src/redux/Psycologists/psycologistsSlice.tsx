@@ -3,9 +3,9 @@ import {getPsycologists} from "./psycologistOperations"
 
 
 interface PsychologistState {
-  data: any[] | undefined; // Change to 'any[] | undefined'
+  data: object[]; 
   loading: boolean;
-  error: string | null | undefined; // Change to 'string | null | undefined'
+  error: string | null | undefined; 
 }
 
 const initialState: PsychologistState = {

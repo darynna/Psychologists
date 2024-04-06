@@ -45,9 +45,14 @@ export const LoginForm: React.FC<FormProps> = ({ closeModal }) => {
       closeModal();
 
       setSubmitting(false);
-    } catch (error: any) {
+    } catch (error) {
+     if (error instanceof Error) {
       // Handle Firebase Authentication errors
       alert(error.message);
+    } else {
+      // Handle other types of errors
+      alert('An unknown error occurred');
+    }
       setSubmitting(false);
     }
   };

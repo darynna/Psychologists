@@ -1,9 +1,33 @@
-import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk} from "@reduxjs/toolkit";
 import { ref, child, get } from "firebase/database";
 import { database } from "../../firebase/config";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export const getPsycologists: AsyncThunk<any[], void, object> = createAsyncThunk(
+type Review = {
+  reviewer: string;
+  rating: number;
+  comment: string;
+};
+
+type Psychologist = {
+  name: string;
+  avatar_url: string;
+  experience: string;
+  reviews: Review[];
+  price_per_hour: number;
+  rating: number;
+  license: string;
+  specialization: string;
+  initial_consultation: string;
+  about: string;
+};
+
+type GetPsycologistsReturnType = Psychologist[];
+
+export const getPsycologists= createAsyncThunk<
+  GetPsycologistsReturnType,
+  void
+>(
   "psychologists/fetchPsychologists",
   async (_, thunkAPI) => {
     const dbRef = ref(database);
@@ -12,7 +36,7 @@ export const getPsycologists: AsyncThunk<any[], void, object> = createAsyncThunk
       const snapshot = await get(child(dbRef, "/"));
 
       if (snapshot.exists()) {
-        const data = snapshot.val();
+        const data: { [key: string]: Psychologist } = snapshot.val();
         
         if (data) {
           const allPsycologists = Object.values(data);
