@@ -85,7 +85,6 @@ const isFavorite = favoritePsychologists.some(p => p.id === id);
                           </div>
                         </ReviewSecondaryWrap>
                       ))}
-                    <RevieButton>Make an appointment</RevieButton>
                     </ReviewMainWrap>
                   )}
                 </div>

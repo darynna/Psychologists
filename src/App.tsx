@@ -1,12 +1,10 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 import { Home } from "./pages/Home/Home";
 import { Psychologists } from "./pages/Psychologists/Psychologists";
 import { Favorite } from "./pages/Favorites/Favorites";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute"
-
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { login } from './redux/Auth/authSlice';
@@ -30,8 +28,18 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
-        <Route path="/psychologists" element={<Psychologists />} />
-        <Route path="/favorites" element={<PrivateRoute><Favorite /></PrivateRoute>} />
+        <Route 
+          path="/psychologists" 
+          element={
+            <Psychologists />
+          }
+        />
+        <Route 
+          path="/favorites" 
+          element={
+            <PrivateRoute><Favorite /></PrivateRoute>
+          } 
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
