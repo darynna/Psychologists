@@ -1,19 +1,23 @@
 {
   "files": {
-    "main.css": "/Psychologists/static/css/main.614d64ae.css",
-    "main.js": "/Psychologists/static/js/main.6a7ddb4e.js",
+    "main.css": "/Psychologists/static/css/main.8126853f.css",
+    "main.js": "/Psychologists/static/js/main.88db8f19.js",
     "static/media/homeImg@2x.png": "/Psychologists/static/media/homeImg@2x.0ccf17645dfdb417c451.png",
     "static/media/homeImg.png": "/Psychologists/static/media/homeImg.ad65add875daf5afe771.png",
+    "static/media/icon_star.svg": "/Psychologists/static/media/icon_star.b0c9356caa49b72d3240be162ef20bdc.svg",
     "static/media/users.svg": "/Psychologists/static/media/users.6ea02aba58546c33684271dffbef88f8.svg",
     "static/media/question.svg": "/Psychologists/static/media/question.7265f11858ffb0c1170e2e0b84bd81d9.svg",
     "index.html": "/Psychologists/index.html",
+    "static/media/heart.svg": "/Psychologists/static/media/heart.fa683af495e4e0b459367ea84a6c185f.svg",
+    "static/media/icon-user.svg": "/Psychologists/static/media/icon-user.5c8c8f9d2af822c80ae6bc60a2421c4b.svg",
+    "static/media/close.svg": "/Psychologists/static/media/close.3556c86ffbc3e9911915314ac323164b.svg",
     "static/media/fe_check.svg": "/Psychologists/static/media/fe_check.dc4c6210714b800646d77a7d76825c4d.svg",
     "static/media/arrow.svg": "/Psychologists/static/media/arrow.1dd9ff6a0935297ed2a1f4f7157599af.svg",
-    "main.614d64ae.css.map": "/Psychologists/static/css/main.614d64ae.css.map",
-    "main.6a7ddb4e.js.map": "/Psychologists/static/js/main.6a7ddb4e.js.map"
+    "main.8126853f.css.map": "/Psychologists/static/css/main.8126853f.css.map",
+    "main.88db8f19.js.map": "/Psychologists/static/js/main.88db8f19.js.map"
   },
   "entrypoints": [
-    "static/css/main.614d64ae.css",
-    "static/js/main.6a7ddb4e.js"
+    "static/css/main.8126853f.css",
+    "static/js/main.88db8f19.js"
   ]
 }
