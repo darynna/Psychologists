@@ -7,7 +7,7 @@ import { RootState } from '../../redux/store';
 import { ReactComponent as StarIcon } from '../../assets/icons/icon_star.svg';
 import { ReactComponent as HeartIcon } from '../../assets/icons/heart.svg';
 import { addToFavorites, removeFromFavorites } from '../../redux/Auth/authSlice'; 
-import { PsycologistWrapContent, PsycologistWrapImg,PsycologistlikeButton, ReviewParagrph, RevieButton, ReviewSecondaryWrap, PsycologistImg, ReadMorebutton, ReviewMainWrap, ReviewWrap, ReviewerImg, PsycologistText, PsycologisList, PsycologistNane, PsycologisListWrap, PsycologistWrapContentFirst, PsycologistBoxContentFirst, PsycologistPrice } from "./PsycologistItem.styled";
+import { PsycologistWrapContent, PsycologistWrapImg,PsycologistlikeButton, ReviewParagrph, ReviewSecondaryWrap, PsycologistImg, ReadMorebutton, ReviewMainWrap, ReviewWrap, ReviewerImg, PsycologistText, PsycologisList, PsycologistNane, PsycologisListWrap, PsycologistWrapContentFirst, PsycologistBoxContentFirst, PsycologistPrice } from "./PsycologistItem.styled";
 
 interface PsycologistItemProps {
   psychologist: Psychologist;

@@ -29,12 +29,10 @@ export const RegistrationForm: React.FC<FormProps> = ({ closeModal }) => {
     try {
       const { email, password } = values;
 
-      // Create user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       dispatch(login({ uid: user.uid, email: user.email }));
 
-      // Registration successful
       Notify.success('Registration successful!');
        closeModal();
 

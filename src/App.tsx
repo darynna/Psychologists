@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 import { Home } from "./pages/Home/Home";
 import { Psychologists } from "./pages/Psychologists/Psychologists";
@@ -19,8 +19,6 @@ export const App = () => {
         dispatch(login({ uid: user.uid, email: user.email }));
       }
     });
-
-    // Cleanup the listener on component unmount
     return () => unsubscribe();
   }, [dispatch, auth]);
 

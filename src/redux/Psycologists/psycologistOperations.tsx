@@ -54,7 +54,7 @@ export const getPsycologists= createAsyncThunk<
     } catch (error) {
       console.error(error);
       Notify.failure(`${error}`);
-      throw error; // Rethrow the error to handle it in the Redux state
+      throw error; 
     }
   }
 );

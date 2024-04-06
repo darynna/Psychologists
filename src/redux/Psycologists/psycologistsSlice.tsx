@@ -19,7 +19,6 @@ const psychologistsSlice = createSlice({
   name: 'psychologist',
   initialState,
   reducers: {
-    // Additional reducers can go here
   },
   extraReducers: (builder) => {
     builder
