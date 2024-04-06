@@ -9,7 +9,7 @@ type Review = {
   comment: string;
 };
 
-type Psychologist = {
+export type Psychologist = {
   name: string;
   avatar_url: string;
   experience: string;
