@@ -5,6 +5,7 @@ import { Formik, FormikHelpers } from 'formik';
 import { FormContent, FormTitle, FormText, FormCloseButton, FormForm, FormSignUpButton, FormLabel, FormField } from "./Form.styled";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
+import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
 import { login } from '../../redux/Auth/authSlice';
 import { auth } from "../../firebase/config"
 
@@ -38,16 +39,21 @@ export const RegistrationForm: React.FC<FormProps> = ({ closeModal }) => {
        closeModal();
 
       setSubmitting(false);
-    } catch (error: any) {
-      // Handle Firebase Authentication errors
+    } catch (error) {
+     if (error instanceof Error) {
+    
       alert(error.message);
+    } else {
+   
+      alert('An unknown error occurred');
+    }
       setSubmitting(false);
     }
   };
 
   return (
     <FormContent>
-      <FormCloseButton onClick={closeModal}>Close</FormCloseButton>
+      <FormCloseButton onClick={closeModal}><CloseIcon/></FormCloseButton>
       <FormTitle>Registration</FormTitle>
       <FormText>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</FormText>
       <Formik

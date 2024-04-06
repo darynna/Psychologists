@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HaederStyled, ListStyled, StyledElem, NavLinkStyled, Logo, Nav, StyledButtonLogIn, StyledButtonReg, LogOutBox, StyledElemIcon } from "./Header.styled";
 import { ModalWindow } from "../ModalWindow/ModalWindow";
@@ -37,7 +37,32 @@ export const Header = () => {
   persistor.purge().then(() => {
     persistor.flush();
   });
-};
+  };
+  
+  useEffect(() => {
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setIsModalRegOpen(false);
+                setIsModalLogOpen(false);
+            }
+        };
+
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as HTMLElement;
+            if (target.classList.contains('modal-background')) {
+                setIsModalRegOpen(false);
+                setIsModalLogOpen(false);
+            }
+        };
+
+        document.addEventListener('keydown', handleEscape);
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
   
   const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
   return (

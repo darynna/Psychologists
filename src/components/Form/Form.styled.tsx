@@ -9,6 +9,8 @@ export const FormCloseButton = styled.button`
 position: absolute;
 top: 20px;
 right: 20px;
+background-color: transparent;
+border: none
 `
 
 export const FormTitle = styled.h2`
@@ -58,3 +60,4 @@ border: 1px solid rgba(25, 26, 21, 0.1);
 border-radius: 12px;
 
 `
+

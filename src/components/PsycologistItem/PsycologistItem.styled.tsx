@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PsycologistWrapContent = styled.div`
+export const PsycologistWrapContent = styled.li`
 max-width: 1184px;
 padding: 24px;
 margin-bottom: 32px;

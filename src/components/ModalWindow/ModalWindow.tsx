@@ -7,7 +7,7 @@ interface ModalProps {
 
 export const ModalWindow: React.FC<ModalProps> = ({Content}) => {
     return (
-        <ModalOverlay>
+        <ModalOverlay className='modal-background'>
             <ModalContent>
                 {Content}
             </ModalContent>

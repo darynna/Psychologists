@@ -4,6 +4,7 @@ import { Formik, FormikHelpers } from 'formik';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { FormContent, FormTitle, FormText, FormCloseButton, FormForm, FormSignUpButton, FormLabel, FormField } from "./Form.styled";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/Auth/authSlice';
 import {auth} from "../../firebase/config"
@@ -28,29 +29,29 @@ export const LoginForm: React.FC<FormProps> = ({ closeModal }) => {
     try {
       const { email, password } = values;
 
-      // Sign in user with Firebase Authentication
+     
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const uid = userCredential.user?.uid;
 
       if (uid) {
-      // Dispatch the login action with the correct payload
+ 
       dispatch(login({ uid, email }));
     } else {
       throw new Error('Failed to retrieve UID');
     }
-      // Login successful
+   
       Notify.success('Login successful!');
 
-      // Close the modal window
+
       closeModal();
 
       setSubmitting(false);
     } catch (error) {
      if (error instanceof Error) {
-      // Handle Firebase Authentication errors
+    
       alert(error.message);
     } else {
-      // Handle other types of errors
+   
       alert('An unknown error occurred');
     }
       setSubmitting(false);
@@ -59,7 +60,7 @@ export const LoginForm: React.FC<FormProps> = ({ closeModal }) => {
 
   return (
     <FormContent>
-      <FormCloseButton onClick={closeModal}>Close</FormCloseButton>
+      <FormCloseButton onClick={closeModal}><CloseIcon/></FormCloseButton>
       <FormTitle>Log In</FormTitle>
       <FormText>Welcome back! Please enter your credentials to access your account and continue your search for a psychologist.</FormText>
       <Formik
