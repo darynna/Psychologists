@@ -12,6 +12,14 @@ background-color: #3470FF;
 width: 311px;
 height: 118px;
 border-radius: 20px;
+
+  @media (max-width: 767px) {
+right: 200px;
+}
+
+ @media (max-width: 428px) {
+display: none
+}
 `
 
 export const IconWrapper = styled.div`

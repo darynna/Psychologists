@@ -7,7 +7,7 @@ import { ReactComponent as ArrorIcon } from '../../assets/icons/arrow.svg';
 import { ExperienceBox } from "../ExperienceBox/ExperienceBox";
 import { ModalWindow } from "../ModalWindow/ModalWindow";
 import { RegistrationForm } from "../Form/FormReg";
-import {IconQuestionWrapper, IconUserWrapper, HomeWrapper, HomeTitle, HomeTitleSpan, HomeText, StyledButtonStart, HomeImgBox} from "./HomeContent.styled"
+import {IconQuestionWrapper, IconUserWrapper, HomeWrapper, HomeTitle, HomeTitleSpan, FirstWrapper,HomeText, StyledButtonStart, HomeImgBox} from "./HomeContent.styled"
 
 export const HomeContent = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -21,11 +21,11 @@ export const HomeContent = () => {
   return (
       <HomeWrapper>
           {isModalOpen && <ModalWindow Content={<RegistrationForm closeModal={closeModal} />} />}
-          <div>
+          <FirstWrapper>
               <HomeTitle>The road to the <HomeTitleSpan>depths</HomeTitleSpan> of the human soul</HomeTitle>
               <HomeText>We help you to reveal your potential, overcome challenges and find a guide in your own life with the help of our experienced psychologists.</HomeText>
               <StyledButtonStart onClick={openModal}>Get started <ArrorIcon/></StyledButtonStart>
-          </div>
+          </FirstWrapper>
           <HomeImgBox>
              <img 
           srcSet={`${homeImg1x} 1x, ${homeImg2x} 2x`}

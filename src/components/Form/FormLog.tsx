@@ -49,10 +49,10 @@ export const LoginForm: React.FC<FormProps> = ({ closeModal }) => {
     } catch (error) {
      if (error instanceof Error) {
     
-      alert(error.message);
+      Notify.failure(error.message);
     } else {
    
-      alert('An unknown error occurred');
+      Notify.failure('An unknown error occurred');
     }
       setSubmitting(false);
     }

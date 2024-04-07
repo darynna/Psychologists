@@ -6,6 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
 import { Psychologist } from "../../redux/Psycologists/psycologistOperations";
 import PsycologistList from '../PsycologistsList/PsycologistsList';
+import {Loader} from "./PsycologistsContent.styled"
 
 const PsycologistContent: React.FC = () => {
   const dispatch: ThunkDispatch<RootState, unknown, Action<string>> = useDispatch();
@@ -16,7 +17,7 @@ const PsycologistContent: React.FC = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader>Loading...</Loader>;
   }
 
   if (error) {

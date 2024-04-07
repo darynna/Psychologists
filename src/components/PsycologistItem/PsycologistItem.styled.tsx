@@ -6,8 +6,12 @@ padding: 24px;
 margin-bottom: 32px;
 background-color: white;
 border-radius: 24px;
+
+
+@media (min-width: 768px) {
 display: flex;
 gap: 24px;
+}
 `
 
 export const PsycologistWrapImg = styled.div`
@@ -23,8 +27,11 @@ justify-content: space-between;
 `
 
 export const PsycologistBoxContentFirst = styled.div`
-display: flex;
+@media (min-width: 428px) {
+  display: flex;
 gap: 8px;
+
+}
 `
 
 export const PsycologistlikeButton = styled.button`

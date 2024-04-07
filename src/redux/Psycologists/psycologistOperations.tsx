@@ -41,7 +41,6 @@ export const getPsycologists= createAsyncThunk<
         
         if (data) {
           const allPsycologists = Object.values(data);
-          console.log(allPsycologists);
           return allPsycologists;
         } else {
           Notify.warning("No data available");
@@ -52,7 +51,6 @@ export const getPsycologists= createAsyncThunk<
         return [];
       }
     } catch (error) {
-      console.error(error);
       Notify.failure(`${error}`);
       throw error; 
     }
