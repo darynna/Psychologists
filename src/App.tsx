@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { login } from './redux/Auth/authSlice';
 
+
 export const App = () => {
   const dispatch = useDispatch();
   const auth = getAuth();

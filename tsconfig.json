@@ -17,5 +17,5 @@
     "jsx": "react",
     "strict": true
   },
-  "include": ["**/*.ts", "src/App.tsx", "src/index.tsx"]
+  "include": ["**/*.ts", "src/App.tsx", "src/index.tsx", ]
 }
